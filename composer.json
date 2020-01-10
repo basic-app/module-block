@@ -1,0 +1,9 @@
+{
+    "name": "basic-app/module-block",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\Block\\" : ""
+        }
+    }
+}

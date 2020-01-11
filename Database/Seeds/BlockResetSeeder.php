@@ -6,12 +6,12 @@
  */
 namespace BasicApp\Block\Database\Seeds;
 
-class ConfigResetSeeder extends \BasicApp\Core\Seeder
+class BlockResetSeeder extends \BasicApp\Core\Seeder
 {
 
     public function run()
     {
-        $this->db->table('posts')->truncate();
+        $this->db->table('blocks')->truncate();
     }
 
 }

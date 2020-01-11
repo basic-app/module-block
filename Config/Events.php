@@ -8,10 +8,8 @@ use BasicApp\System\SystemEvents;
 use BasicApp\Admin\AdminEvents;
 use BasicApp\Block\Controllers\Admin\Block as BlockController;
 use BasicApp\Helpers\Url;
-use BasicApp\System\Events\SystemSeedEvent;
 use BasicApp\System\Events\SystemResetEvent;
-use BasicApp\Block\Database\Seeds\ConfigSeeder;
-use BasicApp\Block\Database\Seeds\ConfigResetSeeder;
+use BasicApp\Block\Database\Seeds\BlockResetSeeder;
 
 SystemEvents::onPreSystem(function()
 {
@@ -29,16 +27,9 @@ AdminEvents::onMainMenu(function($event)
     }
 });
 
-SystemEvents::onSeed(function(SystemSeedEvent $event)
-{
-    $seeder = Database::seeder();
-
-    $seeder->call(ConfigSeeder::class);
-});
-
 SystemEvents::onReset(function(SystemResetEvent $event)
 {
     $seeder = Database::seeder();
 
-    $seeder->call(ConfigResetSeeder::class);
+    $seeder->call(BlockResetSeeder::class);
 });

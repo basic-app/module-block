@@ -10,6 +10,7 @@ use BasicApp\Block\Controllers\Admin\Block as BlockController;
 use BasicApp\Helpers\Url;
 use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\Block\Database\Seeds\BlockResetSeeder;
+use Config\Database;
 
 SystemEvents::onPreSystem(function()
 {

@@ -4,7 +4,7 @@
  * @license MIT
  * @link http://basic-app.com
  */
-namespace BasicApp\Blog\Database\Seeds;
+namespace BasicApp\Block\Database\Seeds;
 
 class ConfigResetSeeder extends \BasicApp\Core\Seeder
 {

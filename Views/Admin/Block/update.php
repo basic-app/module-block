@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 require __DIR__ . '/_common.php';
 
 $this->data['breadcrumbs'][] = ['label' => t('admin', 'Update')];

@@ -22,23 +22,38 @@ $this->data['actionMenu'][] = [
 
 $adminTheme = service('adminTheme');
 
-echo $adminTheme->table([
-    'labels' => [
-        $model->getFieldLabel('block_id'),
+echo $adminTheme->grid([
+    'headers' => [
+        [
+            'class' => $adminTheme::GRID_HEADER_PRIMARY_KEY,
+            'content' => $model->getFieldLabel('block_id')
+        ],
         $model->getFieldLabel('block_created_at'),
-        $model->getFieldLabel('block_uid'),
-        '',
-        ''
+        [
+            'class' => $adminTheme::GRID_HEADER_LABEL,
+            'content' => $model->getFieldLabel('block_uid')
+        ],
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_UPDATE],
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_DELETE]
     ],
-    'elements' => $elements,
-    'columns' => function($model) {
-        return [
-            $this->createColumn(['field' => 'block_id'])->number()->displaySmall(),
-            $this->createColumn(['field' => 'block_created_at'])->displayMedium(),
-            $this->createColumn(['field' => 'block_uid'])->success(),
-            $this->createUpdateLinkColumn(['action' => 'admin/block/update']),
-            $this->createDeleteLinkColumn(['action' => 'admin/block/delete'])
-        ];
+    'items' => function() use ($elements, $adminTheme) {
+
+        foreach($elements as $data)
+        {
+            yield [
+                $data->block_id,
+                $data->block_created_at,
+                $data->block_uid,
+                [
+                    'class' => $adminTheme::GRID_CELL_BUTTON_UPDATE,
+                    'url' => Url::returnUrl('admin/block/update', ['id' => $data->block_id])
+                ],
+                [
+                    'class' => $adminTheme::GRID_CELL_BUTTON_DELETE,
+                    'url' => Url::returnUrl('admin/block/delete', ['id' => $data->block_id])
+                ]
+            ];
+        }
     }
 ]);
 

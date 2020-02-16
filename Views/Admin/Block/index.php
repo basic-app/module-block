@@ -44,14 +44,8 @@ echo $adminTheme->grid([
                 $data->block_id,
                 $data->block_created_at,
                 $data->block_uid,
-                [
-                    'class' => $adminTheme::GRID_CELL_BUTTON_UPDATE,
-                    'url' => Url::returnUrl('admin/block/update', ['id' => $data->block_id])
-                ],
-                [
-                    'class' => $adminTheme::GRID_CELL_BUTTON_DELETE,
-                    'url' => Url::returnUrl('admin/block/delete', ['id' => $data->block_id])
-                ]
+                ['url' => Url::returnUrl('admin/block/update', ['id' => $data->block_id])],
+                ['url' => Url::returnUrl('admin/block/delete', ['id' => $data->block_id])]
             ];
         }
     }

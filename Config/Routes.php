@@ -4,5 +4,5 @@
  * @license MIT
  * @link http://basic-app.com
  */
-$routes->add('admin/block', 'BasicApp\Block\Controllers\Admin\Block::index');
-$routes->add('admin/block/(:segment)', 'BasicApp\Block\Controllers\Admin\Block::$1');
+$routes->add('admin/block', '\BasicApp\Block\Controllers\Admin\Block::index');
+$routes->add('admin/block/(:segment)', '\BasicApp\Block\Controllers\Admin\Block::$1');

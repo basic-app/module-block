@@ -4,16 +4,12 @@
  * @license MIT
  * @link http://basic-app.com
  */
-use BasicApp\Block\Models\BlockModel;
+use BasicApp\Block\BlockEvents;
 
 if (!function_exists('block'))
 {
     function block(string $uid, string $default = '', array $params = [])
     {
-        $return = BlockModel::content($uid, true, ['block_content' => $default]);
-
-        $return = strtr($return, $params);
-
-        return $return;
+        return BlockEvents::block($uid, $default, $params);
     }
 }

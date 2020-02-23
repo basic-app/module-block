@@ -12,25 +12,34 @@ use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\Block\Database\Seeds\BlockResetSeeder;
 use Config\Database;
 
-SystemEvents::onPreSystem(function()
+if (class_exists(SystemEvents::class))
 {
-    helper(['block']);
-});
-
-AdminEvents::onMainMenu(function($event)
-{
-    if (service('admin')->can(BlockController::class))
+    SystemEvents::onPreSystem(function()
     {
-        $event->items['site']['items']['blocks'] = [
-            'url'   => Url::createUrl('admin/block'),
-            'label' => t('admin.menu', 'Blocks')
-        ];
-    }
-});
+        helper(['block']);
+    });
+}
 
-SystemEvents::onReset(function(SystemResetEvent $event)
+if (class_exists(SystemEvents::class))
 {
-    $seeder = Database::seeder();
+    SystemEvents::onReset(function(SystemResetEvent $event)
+    {
+        $seeder = Database::seeder();
 
-    $seeder->call(BlockResetSeeder::class);
-});
+        $seeder->call(BlockResetSeeder::class);
+    });
+}
+
+if (class_exists(AdminEvents::class))
+{
+    AdminEvents::onMainMenu(function($event)
+    {
+        if (service('admin')->can(BlockController::class))
+        {
+            $event->items['site']['items']['blocks'] = [
+                'url'   => Url::createUrl('admin/block'),
+                'label' => t('admin.menu', 'Blocks')
+            ];
+        }
+    });
+}

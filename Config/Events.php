@@ -4,6 +4,7 @@
  * @license MIT
  * @link http://basic-app.com
  */
+use BasicApp\Site\SiteEvents;
 use BasicApp\System\SystemEvents;
 use BasicApp\Admin\AdminEvents;
 use BasicApp\Block\Controllers\Admin\Block as BlockController;
@@ -41,5 +42,19 @@ if (class_exists(AdminEvents::class))
                 'label' => t('admin.menu', 'Blocks')
             ];
         }
+    });
+}
+
+if (class_exists(SiteEvents::class))
+{
+    SiteEvents::onMainLayout(function($event)
+    {
+        $event->params['title'] = block('site.defaultTitle', 'My Site Title');
+
+        $event->params['siteName'] = block('site.siteName', 'My Site');
+        
+        $event->params['copyright'] = block('site.copyright', '&copy; My Company {year}.');
+        
+        $event->params['description'] = block('site.defaultDescription', 'Default site description.');
     });
 }

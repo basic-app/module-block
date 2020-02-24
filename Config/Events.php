@@ -49,12 +49,12 @@ if (class_exists(SiteEvents::class))
 {
     SiteEvents::onMainLayout(function($event)
     {
-        $event->params['title'] = block('site.defaultTitle', 'My Site Title');
+        $event->params['title'] = $event->params['title'] ?? block('site.defaultTitle', 'My Site Title');
 
-        $event->params['siteName'] = block('site.siteName', 'My Site');
+        $event->params['siteName'] = $event->params['siteName'] ?? block('site.siteName', 'My Site');
         
-        $event->params['copyright'] = block('site.copyright', '&copy; My Company {year}.');
+        $event->params['copyright'] = $event->params['copyright'] ?? block('site.copyright', '&copy; My Company {year}.');
         
-        $event->params['description'] = block('site.defaultDescription', 'Default site description.');
+        $event->params['description'] = $event->params['description'] ?? block('site.defaultDescription', 'Default site description.');
     });
 }

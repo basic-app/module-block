@@ -6,7 +6,7 @@
  */
 $adminTheme = service('adminTheme');
 
-$form = $adminTheme->createForm($model, $errors);
+$form = $adminTheme->createForm($model);
 
 echo $form->open();
 

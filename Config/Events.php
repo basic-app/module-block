@@ -58,3 +58,15 @@ if (class_exists(SiteEvents::class))
         $event->params['siteDescription'] = $event->params['siteDescription'] ?? block('site.description', 'Site description.');
     });
 }
+
+if (class_exists(SiteEvents::class))
+{
+    SiteEvents::onRegisterAssets(function($event)
+    {
+        $event->head .= block('site.head');
+        
+        $event->beginBody .= block('site.beginBody');
+        
+        $event->endBody .= block('site.endBody');
+    });
+}

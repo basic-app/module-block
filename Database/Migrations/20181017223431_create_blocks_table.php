@@ -6,7 +6,7 @@
  */
 namespace BasicApp\Block\Database\Migrations;
 
-class Migration_create_blocks_table extends \BasicApp\Core\Migration
+class Migration_create_blocks_table extends \BasicApp\Migration\BaseMigration
 {
 
     public $tableName = 'blocks';

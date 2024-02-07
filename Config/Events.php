@@ -12,14 +12,12 @@ use BasicApp\Helpers\Url;
 use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\Block\Database\Seeds\BlockResetSeeder;
 use Config\Database;
+use CodeIgniter\Events\Events;
 
-if (class_exists(SystemEvents::class))
+Events::on('pre_system', function()
 {
-    SystemEvents::onPreSystem(function()
-    {
-        helper(['block']);
-    });
-}
+    helper(['block']);
+});
 
 if (class_exists(SystemEvents::class))
 {

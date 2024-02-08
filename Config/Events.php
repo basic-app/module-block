@@ -33,13 +33,10 @@ if (class_exists(AdminEvents::class))
 {
     AdminEvents::onMainMenu(function($event)
     {
-        if (service('admin')->can(BlockController::class))
-        {
-            $event->items['site']['items']['blocks'] = [
-                'url'   => Url::createUrl('admin/block'),
-                'label' => t('admin.menu', 'Blocks')
-            ];
-        }
+        $event->items['site']['items']['blocks'] = [
+            'url'   => Url::createUrl('admin/block'),
+            'label' => t('admin.menu', 'Blocks')
+        ];
     });
 }
 

@@ -13,6 +13,7 @@ use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\Block\Database\Seeds\BlockResetSeeder;
 use Config\Database;
 use CodeIgniter\Events\Events;
+use BasicApp\AdminMenu\AdminMenuEvents;
 
 Events::on('pre_system', function()
 {
@@ -29,9 +30,9 @@ if (class_exists(SystemEvents::class))
     });
 }
 
-if (class_exists(AdminEvents::class))
+if (class_exists(AdminMenuEvents::class))
 {
-    AdminEvents::onMainMenu(function($event)
+    AdminMenuEvents::onMainMenu(function($event)
     {
         $event->items['site']['items']['blocks'] = [
             'url'   => Url::createUrl('admin/block'),

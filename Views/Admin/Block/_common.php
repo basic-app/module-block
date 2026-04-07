@@ -8,8 +8,8 @@ use BasicApp\Helpers\Url;
 
 $title = t('admin.menu', 'Blocks');
 
-$this->data['mainMenu']['site']['items']['blocks']['active'] = true;
+$this->tempData['mainMenu']['site']['items']['blocks']['active'] = true;
 
-$this->data['breadcrumbs'][] = ['label' => $title, 'url' => Url::createUrl('admin/block')];
+$this->tempData['breadcrumbs'][] = ['label' => $title, 'url' => Url::createUrl('admin/block')];
 
-$this->data['title'] = $title;
+$this->tempData['title'] = $title;

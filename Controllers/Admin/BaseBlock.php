@@ -17,4 +17,6 @@ abstract class BaseBlock extends \BasicApp\Admin\AdminCrudController
 
     protected $returnUrl = 'admin/block';
 
+    protected $layout = null;
+
 }

@@ -8,7 +8,6 @@ namespace BasicApp\Block\Models\Admin;
 
 abstract class BaseBlockModel extends \BasicApp\Block\Models\BlockModel
 {
-
     protected $returnType = Block::class;
 
     protected $allowedFields = [
@@ -17,8 +16,8 @@ abstract class BaseBlockModel extends \BasicApp\Block\Models\BlockModel
     ];
 
     protected $validationRules = [
+        'block_id' => 'permit_empty|is_natural_no_zero',
         'block_uid' => 'not_special_chars|max_length[255]|is_unique[blocks.block_uid,block_id,{block_id}]|required',
         'block_content' => 'max_length[65535]'
     ];
-
 }

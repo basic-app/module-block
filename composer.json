@@ -5,5 +5,9 @@
         "psr-4": {
             "BasicApp\\Block\\" : ""
         }
+    },
+    "require": {
+        "basic-app/admin" : "*",
+        "basic-app/core" : "*" 
     }
 }

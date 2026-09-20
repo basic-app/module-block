@@ -23,8 +23,11 @@ $this->setVar('actions', [
                 <th class="text-end" width="1%"><?= $labels['block_id'] ?? 'block_id';?></th>
                 <th><?= $labels['block_uid'] ?? 'block_uid';?></th>
                 <th><?= $labels['block_name'] ?? 'block_name';?></th>
-                <th><?= $labels['block_active'] ?? 'block_active';?></th>
-                <th><?= $labels['block_sort'] ?? 'block_sort';?></th>
+                <th class="text-center"><?= $labels['block_active'] ?? 'block_active';?></th>
+                <?php
+                /*
+                <th ><?= $labels['block_sort'] ?? 'block_sort';?></th>
+                */?>
                 <th width="1%"></th>
                 <th width="1%"></th>
             </tr>
@@ -35,8 +38,11 @@ $this->setVar('actions', [
                     <td class="text-end"><?= $data->block_id;?></td>
                     <td><?= $data->block_uid;?></td>
                     <td><?= $data->block_name;?></td>
-                    <td><?= lang($data->block_active ? 'Admin.Yes' : 'Admin.No');?></td>
+                    <td class="text-center"><?= lang($data->block_active ? 'Admin.Yes' : 'Admin.No');?></td>
+                    <?php
+                    /*
                     <td><?= $data->block_sort;?></td>
+                    */?>
                     <td><?= view_cell('AdminGridButton', [
                             'scenario' => 'edit',
                             'url' => site_url('admin/blocks/edit/' . $data->block_id)

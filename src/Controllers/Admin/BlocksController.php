@@ -38,12 +38,9 @@ class BlocksController extends BaseResourcePresenter
 
     public function new()
     {
-        $data = $this->createData(array_merge(
-            [
-                'block_active' => 1
-            ],
-            $this->request->getGet()
-        ));
+        $data = $this->createData(array_merge([
+            'block_active' => 1
+        ], $this->request->getGet()));
 
         return view($this->templatesPath . '/new', [
             'data' => $data,
@@ -60,9 +57,10 @@ class BlocksController extends BaseResourcePresenter
 
         if (!$id = $this->saveData($data, $errors)) 
         {
-            $this->session->setFlashdata('_ci_validation_errors', $errors);
-
-            return redirect()->back()->withInput();
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('_ci_validation_errors', $errors);
         }
 
         $this->session->setFlashdata('success', lang($this->messageCreated));
@@ -89,9 +87,10 @@ class BlocksController extends BaseResourcePresenter
 
         if (!$this->saveData($data, $errors)) 
         {
-            $this->session->setFlashdata('_ci_validation_errors', $errors);
-
-            return redirect()->back()->withInput();
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('_ci_validation_errors', $errors);
         }
 
         $this->session->setFlashdata('success', lang($this->messageUpdated));

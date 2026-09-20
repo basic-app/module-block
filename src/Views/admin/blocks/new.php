@@ -8,7 +8,7 @@ $this->setVar('breadcrumbs', [
     lang('Admin.Add')
 ]);
 $this->setVar('description', lang('Admin.Add Block'));
-$this->setVar('activeMenu', 'block');
+$this->setVar('activeMenu', 'blocks');
 
 $this->setVar('actions', [
     [

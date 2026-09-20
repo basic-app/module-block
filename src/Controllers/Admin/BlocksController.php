@@ -7,7 +7,6 @@
 namespace BasicApp\Block\Controllers\Admin;
 
 use App\Controllers\Admin\BaseResourcePresenter;
-use CodeIgniter\Files\File;
 
 class BlocksController extends BaseResourcePresenter
 {

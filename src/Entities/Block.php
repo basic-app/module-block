@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link https://basic-app.com
  */
+
 namespace BasicApp\Block\Entities;
 
 use BasicApp\Core\Entity;

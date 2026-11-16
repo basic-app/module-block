@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link https://basic-app.com
  */
+
 namespace BasicApp\Block\Models;
 
 use App\Models\BaseModel;
@@ -13,17 +15,17 @@ use BasicApp\Block\Entities\Block;
 class Blocks extends BaseModel
 {
     protected $returnType = Block::class;
-    
+
     protected $table = 'blocks';
-    
+
     protected $primaryKey = 'block_id';
 
     protected $useTimestamps = true;
 
     protected $createdField  = 'block_created_at';
-    
+
     protected $updatedField  = 'block_updated_at';
-    
+
     protected $deletedField  = 'block_deleted_at';
 
     protected $allowedFields = [
@@ -33,7 +35,7 @@ class Blocks extends BaseModel
         'block_sort',
         'block_active'
     ];
-    
+
     protected $validationRules = [
         'block_uid' => [
             'label' => 'Admin.Block UID',
@@ -57,14 +59,12 @@ class Blocks extends BaseModel
         ]
     ];
 
-    public function getBlock(string $uid, bool $create = false, array $defaults = []) : ?Block
+    public function getBlock(string $uid, bool $create = false, array $defaults = []): ?Block
     {
         $block = $this->where('block_uid', $uid)->first();
 
-        if (!$block)
-        {
-            if (!$create)
-            {
+        if (!$block) {
+            if (!$create) {
                 return null;
             }
 
@@ -78,7 +78,7 @@ class Blocks extends BaseModel
         return $block;
     }
 
-    public function labels() : array
+    public function labels(): array
     {
         return array_merge(
             parent::labels(),
@@ -88,19 +88,16 @@ class Blocks extends BaseModel
         );
     }
 
-    public function rowValidationRules($row) : array
+    public function rowValidationRules($row): array
     {
         $rules = $this->validationRules;
 
-        if ($block_id = $this->getIdValue($row))
-        {
+        if ($block_id = $this->getIdValue($row)) {
             $rules['block_uid']['rules'][] = 'is_unique[blocks.block_uid,block_id,' . $block_id . ']';
-        }
-        else
-        {
+        } else {
             $rules['block_uid']['rules'][] = 'is_unique[blocks.block_uid]';
         }
-    
+
         return $rules;
     }
 }

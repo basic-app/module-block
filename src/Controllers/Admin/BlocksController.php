@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link https://basic-app.com
  */
+
 namespace BasicApp\Block\Controllers\Admin;
 
 use App\Controllers\Admin\BaseResourcePresenter;
@@ -55,8 +57,7 @@ class BlocksController extends BaseResourcePresenter
 
         $data->fill($this->request->getPost());
 
-        if (!$id = $this->saveData($data, $errors)) 
-        {
+        if (!$id = $this->saveData($data, $errors)) {
             return redirect()
                 ->back()
                 ->withInput()
@@ -85,8 +86,7 @@ class BlocksController extends BaseResourcePresenter
 
         $data->fill($this->request->getPost());
 
-        if (!$this->saveData($data, $errors)) 
-        {
+        if (!$this->saveData($data, $errors)) {
             return redirect()
                 ->back()
                 ->withInput()

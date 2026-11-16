@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team <dev@basic-app.com>
  * @license MIT
  * @link http://basic-app.com
  */
+
 namespace BasicApp\Block\Database\Migrations;
 
 class CreateBlocksTable extends \BasicApp\Core\Migration
@@ -44,7 +46,7 @@ class CreateBlocksTable extends \BasicApp\Core\Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true
-            ],           
+            ],
             'block_content_html' => [
                 'type' => 'TEXT',
                 'constraint' => 65535

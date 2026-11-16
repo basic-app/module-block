@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $this->setVar('title', lang('Admin.Blocks'));
 $this->setVar('activeMenu', 'blocks');

@@ -1,3 +1,6 @@
+<?php
+declare(strict_types=1);
+?>
 <?= view_cell('AdminInput', [
     'label' => $labels['block_name'] ?? 'block_name',
     'error' => $errors['block_name'] ?? null,

@@ -36,6 +36,9 @@ class Blocks extends BaseModel
         'block_active'
     ];
 
+    /**
+     * @phpstan-ignore property.defaultValue
+     */
     protected $validationRules = [
         'block_uid' => [
             'label' => 'Admin.Block UID',

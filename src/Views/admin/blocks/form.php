@@ -1,5 +1,9 @@
 <?php
+
 declare(strict_types=1);
+
+/** @var BasicApp\Block\Entities\Block $data */
+
 ?>
 <?= view_cell('AdminInput', [
     'label' => $labels['block_name'] ?? 'block_name',
@@ -46,5 +50,5 @@ declare(strict_types=1);
         'value' => 1,
         'checked' => set_value('block_active', $data->block_active) == 1
     ],
-    'uncheckValue' => 0
+    'uncheckValue' => '0'
 ]);?>

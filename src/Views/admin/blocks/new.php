@@ -1,5 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
+/** @var BasicApp\Block\Entities\Block $data */
+/** @var array $errors */
+/** @var array $labels */
 
 helper(['form', 'render_view']);
 
